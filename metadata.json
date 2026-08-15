@@ -1,0 +1,6 @@
+{
+  "name": "PortfolioOS",
+  "description": "Desktop-inspired personal portfolio website for Sharda Vatsal Bhat, Agentic AI Engineer, with interactive windows, terminal, widget deck, and AI Core panel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

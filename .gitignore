@@ -1,0 +1,47 @@
+# --- Dependencies ---
+node_modules/
+.pnp
+.pnp.js
+
+# --- Next.js build output ---
+.next/
+out/
+build/
+*.tsbuildinfo
+
+# --- Environment variables (secrets) ---
+.env*
+!.env.example
+
+# --- Logs ---
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+.vscode/
+
+# --- Local agent / tooling state (not part of the app) ---
+.freebuff/
+.impeccable-live/
+.impeccable-live.json
+
+# --- Dev-only browser test harnesses & leftover Chrome profiles ---
+scripts/
+drag-profile/
+dbl-profile/
+test-profile/
+responsive-audit/
+
+# --- Personal source files (resume has private contact info; deployed copy lives in public/resume.docx) ---
+Improved_Resume.docx
+Improved_Resume.txt
+References/
+
+# --- Docs / internal notes (not working files) ---
+PRODUCT.md
+UI-REDESIGN-NOTES.md
+PORTFOLIO-DATA-INVENTORY.md
