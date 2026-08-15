@@ -15,7 +15,7 @@ Built by **[Sharda Vatsal Bhat](https://www.linkedin.com/in/sharda-vatsal-bhat-7
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
 ![Gemini](https://img.shields.io/badge/Gemini_API-8E75B2?style=flat-square&logo=googlegemini&logoColor=white)
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Coming_Soon-00D4FF?style=for-the-badge&logo=vercel&logoColor=white)](https://your-live-demo-url.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Live-22C55E?style=for-the-badge&logo=vercel&logoColor=white)](https://portfolio-os-eight-rosy.vercel.app/)
 
 </div>
 
@@ -34,11 +34,8 @@ Built by **[Sharda Vatsal Bhat](https://www.linkedin.com/in/sharda-vatsal-bhat-7
 The portfolio is deployed and available at:
 
 ```
-https://your-live-demo-url.vercel.app
+https://portfolio-os-eight-rosy.vercel.app/
 ```
-
-> ⚠️ **Placeholder** — this URL is not live yet. Replace it with the actual deployment URL
-> (and update the badge link above) once the app is deployed to Vercel.
 
 ---
 
