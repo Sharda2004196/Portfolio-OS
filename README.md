@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="app/icon.svg" width="56" height="56" alt="Portfolio OS icon" />
+<img src="app/icon.svg" width="35" height="35" alt="Portfolio OS icon" />
 
 # Portfolio OS
 
