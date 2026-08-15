@@ -421,6 +421,7 @@ export default function Home() {
   const [formState, setFormState] = useState({ name: "", email: "", msg: "" });
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formLoading, setFormLoading] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
 
   // ----------------------------------------------------
   // Real-time clock and responsiveness
@@ -834,27 +835,44 @@ export default function Home() {
   // ----------------------------------------------------
   // Contact Form Submission
   // ----------------------------------------------------
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formState.name || !formState.email || !formState.msg) {
       playSound("alert");
       return;
     }
-    
+
     setFormLoading(true);
+    setFormError(null);
     playSound("click");
 
-    // Simulate sending messaging logs
-    setTimeout(() => {
-      setFormLoading(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formState),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.error || "Message could not be delivered.");
+      }
       setFormSubmitted(true);
       playSound("open");
-      // Add alert directly to terminal
       setTerminalHistory((prev) => [
         ...prev,
-        { text: `SYSTEM: Received incoming communication packet from ${formState.name} (${formState.email}). Saved to server cache.`, type: "output" }
+        { text: `SYSTEM: Received incoming communication packet from ${formState.name} (${formState.email}). Packet routed to owner inbox.`, type: "output" }
       ]);
-    }, 1200);
+    } catch (err: any) {
+      console.error("Contact form error:", err);
+      playSound("alert");
+      setFormError(err?.message || "Message could not be delivered. Please try again.");
+      setTerminalHistory((prev) => [
+        ...prev,
+        { text: `SYSTEM: ERROR — communication packet from ${formState.name} could not be routed. Check configuration and retry.`, type: "error" }
+      ]);
+    } finally {
+      setFormLoading(false);
+    }
   };
 
   // Filter application window by search query
@@ -1687,6 +1705,12 @@ export default function Home() {
                                   className="w-full bg-white/5 hover:bg-white/10 focus:bg-white/[0.12] border border-white/10 focus:border-[#00D4FF] rounded-lg px-3 py-2 text-white text-xs outline-none transition-all resize-none"
                                 />
                               </div>
+
+                              {formError && (
+                                <p className="text-[11px] text-rose-400 bg-rose-500/10 border border-rose-500/30 rounded-lg px-3 py-2 leading-relaxed">
+                                  ⚠️ {formError}
+                                </p>
+                              )}
 
                               <button
                                 id="contact-form-button"
