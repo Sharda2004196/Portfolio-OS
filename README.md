@@ -21,6 +21,14 @@ Built by **[Sharda Vatsal Bhat](https://www.linkedin.com/in/sharda-vatsal-bhat-7
 
 ---
 
+<div align="center">
+
+<img src="assets/portfolio-os-screenshot.png" alt="Portfolio OS desktop — draggable windows, glass taskbar, and AI assistants" />
+
+</div>
+
+---
+
 ## 🌐 Live Demo
 
 The portfolio is deployed and available at:
@@ -48,7 +56,7 @@ The result: a memorable, engaging way for recruiters and visitors to explore pro
 - **Boot sequence** — power-on screen that boots into the desktop with synthesized audio
 - **Free-position draggable icons** — reposition desktop icons anywhere; positions **persist in `localStorage`**
 - **macOS-style glass taskbar** — frosted blur dock with app launcher, system tray (Wi-Fi, volume, clock)
-- **3 animated wallpapers** — Aurora gradient, Starfield, and Particle network — switchable live
+- **3 switchable wallpaper themes** — **Aurora gradient**, **Starfield**, and **Particle network** — change anytime from the desktop without reloading
 - **Window management** — open, minimize, drag, and close apps with proper z-ordering
 
 ### 📦 Built-in Applications (12+)
@@ -207,6 +215,32 @@ The API routes (`/api/aicore`, `/api/jarvis`) deploy automatically as serverless
 - **Phone:** +91 60066 06713
 - **GitHub:** [Sharda2004196](https://github.com/Sharda2004196)
 - **LinkedIn:** [Sharda Vatsal Bhat](https://www.linkedin.com/in/sharda-vatsal-bhat-73b037295)
+
+---
+
+## 📄 License
+
+MIT License
+
+Copyright (c) 2026 Sharda Vatsal Bhat
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 ---
 
