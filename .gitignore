@@ -35,9 +35,10 @@ scripts/
 *profile/
 responsive-audit/
 
-# --- Personal source files (resume has private contact info; deployed copy lives in public/resume.docx) ---
+# --- Personal source files (resume has private contact info; deployed copy lives in public/resume.pdf) ---
 Improved_Resume.docx
 Improved_Resume.txt
+Latest Resume.pdf
 References/
 
 # --- Docs / internal notes (not working files) ---

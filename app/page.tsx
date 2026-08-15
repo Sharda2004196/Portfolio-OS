@@ -1483,7 +1483,7 @@ export default function Home() {
                               <p className="text-xs text-gray-400 font-mono">Status: <span className="text-emerald-400">Available</span></p>
                             </div>
                             <a
-                              href="/resume.docx"
+                              href="/resume.pdf"
                               download
                               onClick={() => playSound("click")}
                               className="px-4 py-2 rounded-lg bg-[#00D4FF]/15 hover:bg-[#00D4FF]/25 border border-[#00D4FF]/30 hover:border-[#00D4FF] text-white transition-all flex items-center space-x-2 text-xs font-medium shrink-0"
@@ -1493,13 +1493,17 @@ export default function Home() {
                             </a>
                           </div>
 
-                          <div className="border border-white/10 p-12 bg-white/[0.02] rounded-xl font-sans text-gray-300 text-center space-y-4 shadow-inner">
-                            <FileText className="w-12 h-12 text-[#FF5A5F] mx-auto opacity-70 animate-pulse" />
-                            <h2 className="text-lg font-bold text-white">Resume</h2>
-                            <p className="text-sm text-gray-400 max-w-sm mx-auto leading-relaxed">
-                              Sharda&apos;s latest resume is ready — hit &quot;Download Resume&quot; to grab a copy.
-                            </p>
+                          {/* Inline PDF preview — viewers can read the resume without downloading */}
+                          <div className="rounded-xl overflow-hidden border border-white/10 bg-white shadow-inner">
+                            <iframe
+                              src="/resume.pdf"
+                              title="Sharda Vatsal Bhat — Resume preview"
+                              className="w-full h-[420px] md:h-[480px]"
+                            />
                           </div>
+                          <p className="text-[10px] font-mono text-gray-500 text-center select-none">
+                            Previewing — use &quot;Download Resume&quot; above to save a copy.
+                          </p>
                         </div>
                       )}
 

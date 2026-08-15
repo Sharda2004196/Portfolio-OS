@@ -61,7 +61,7 @@ The result: a memorable, engaging way for recruiters and visitors to explore pro
 |---|---|
 | **About Me** | Bio, education (B.Tech, CGC University Mohali), keywords |
 | **AI Projects** | Portfolio of projects with GitHub / live demo links |
-| **Resume** | Downloadable resume (`/resume.docx`) |
+| **Resume** | Inline PDF preview + downloadable resume (`/resume.pdf`) |
 | **Skills** | Categorized skill matrix |
 | **Experience** | Internships at AariyaTech & Infotact Solutions |
 | **Certifications** | AWS, Deloitte, Cisco, MongoDB, Anthropic credentials |
@@ -172,7 +172,7 @@ npm start
 │   └── data.ts                  # ✏️ Single source of truth for portfolio data
 ├── public/
 │   ├── avatar.jpg               # Profile photo
-│   └── resume.docx              # Downloadable resume
+│   └── resume.pdf               # Resume (inline preview + download)
 └── .env.local                   # GEMINI_API_KEY (never committed)
 ```
 
