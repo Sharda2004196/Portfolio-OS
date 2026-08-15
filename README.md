@@ -1,6 +1,8 @@
 <div align="center">
 
-# <img src="app/icon.svg" width="40" height="40" alt="Portfolio OS icon" style="vertical-align: middle" /> Portfolio OS
+<img src="app/icon.svg" width="56" height="56" alt="Portfolio OS icon" />
+
+# Portfolio OS
 
 **An interactive, desktop-inspired portfolio operating system**
 
