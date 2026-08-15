@@ -1,7 +1,7 @@
 <div align="center">
 
 <h1 align="center">
-  <img src="app/icon.svg" width="24" height="24" alt="Portfolio OS icon" />
+  <img src="app/icon.svg" width="26" height="26" alt="Portfolio OS icon" />
   Portfolio OS
 </h1>
 

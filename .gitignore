@@ -31,9 +31,8 @@ Thumbs.db
 
 # --- Dev-only browser test harnesses & leftover Chrome profiles ---
 scripts/
-drag-profile/
-dbl-profile/
-test-profile/
+*drag-profile/
+*profile/
 responsive-audit/
 
 # --- Personal source files (resume has private contact info; deployed copy lives in public/resume.docx) ---
