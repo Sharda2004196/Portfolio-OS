@@ -63,7 +63,7 @@ The result: a memorable, engaging way for recruiters and visitors to explore pro
 | **AI Projects** | Portfolio of projects with GitHub / live demo links |
 | **Resume** | Inline PDF preview + downloadable resume (`/resume.pdf`) |
 | **Skills** | Categorized skill matrix |
-| **Experience** | Internships at AariyaTech & Infotact Solutions |
+| **Experience** | Roles at AariyaTech & Infotact Solutions |
 | **Certifications** | AWS, Deloitte, Cisco, MongoDB, Anthropic credentials |
 | **Achievements** | Honors & recognitions |
 | **Contact Me** | Message form + email / phone / social links |
@@ -171,7 +171,7 @@ npm start
 ├── lib/
 │   └── data.ts                  # ✏️ Single source of truth for portfolio data
 ├── public/
-│   ├── avatar.jpg               # Profile photo
+│   ├── avatar.png               # Profile photo
 │   └── resume.pdf               # Resume (inline preview + download)
 └── .env.local                   # GEMINI_API_KEY (never committed)
 ```
@@ -209,7 +209,7 @@ The API routes (`/api/aicore`, `/api/jarvis`) deploy automatically as serverless
 ## 📫 Contact
 
 - **Email:** shardavatsalbhat@gmail.com
-- **Phone:** +91 60066 06713
+- **Phone:** +91-6006606713
 - **GitHub:** [Sharda2004196](https://github.com/Sharda2004196)
 - **LinkedIn:** [Sharda Vatsal Bhat](https://www.linkedin.com/in/sharda-vatsal-bhat-73b037295)
 

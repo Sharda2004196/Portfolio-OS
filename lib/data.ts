@@ -51,18 +51,18 @@ export const PORTFOLIO_DATA = {
     keywords: ["Agentic AI", "RAG Systems", "AI Automation", "LLM Engineering", "Google ADK", "Gemini"],
     currentRole: "Agentic AI Engineer",
     company: "AariyaTech",
-    location: "Jammu and Kashmir, India",
-    avatar: "/avatar.jpg",
+    location: "Jammu & Kashmir, India",
+    avatar: "/avatar.png",
     bioShort: "Agentic AI Engineer with hands-on experience building autonomous agents using Google ADK and Gemini.",
     bioLong:
-      "Agentic AI Engineer with hands-on experience building autonomous agents using Google ADK and Gemini. Skilled in RAG pipelines, vector databases, and multi-agent system design. Currently an Agentic AI Intern at AariyaTech, where he designs multi-agent systems for candidate assessment, job matching, and portfolio evaluation — integrating GitHub API and REST API calls. Focused on building practical, production-ready AI solutions."
+      "Agentic AI Engineer with hands-on experience building autonomous agents using Google ADK and Gemini. Skilled in RAG pipelines, vector databases, and multi-agent system design. Focused on building practical, production-ready AI solutions."
   },
 
   education: {
-    institution: "CGC University, Mohali",
+    institution: "CGC University Mohali",
     degree: "Bachelor of Technology in Artificial Intelligence and Data Science",
     period: "Sept 2022 – July 2026",
-    gpa: "7.5/10",
+    gpa: "7.95/10",
     coursework: [
       "Computer Architecture",
       "Theory of Automata",
@@ -76,24 +76,28 @@ export const PORTFOLIO_DATA = {
 
   skills: [
     {
-      category: "Languages",
-      skills: ["Python"]
+      category: "Agentic AI",
+      skills: ["Google ADK", "Multi-Agent Orchestration", "Prompt Engineering", "MCP"]
     },
     {
-      category: "AI & Agent Frameworks",
-      skills: ["Google ADK", "Gemini (2.5 Flash / Live API)", "MCP", "Prompt Engineering", "LLMs", "RAG"]
+      category: "LLM APIs",
+      skills: ["Gemini", "Groq"]
     },
     {
-      category: "Data & Vector Databases",
-      skills: ["Pinecone", "Chroma DB", "Upstash Redis", "MongoDB Atlas"]
+      category: "RAG & Retrieval",
+      skills: ["Pinecone", "Chroma DB", "Qdrant", "Hybrid Search", "Embeddings", "Reranking"]
     },
     {
-      category: "Frameworks & Tools",
-      skills: ["Flask", "PyQt6", "Playwright", "Streamlit", "Git/GitHub", "REST API", "Requests"]
+      category: "Languages & Backend",
+      skills: ["Python", "FastAPI", "REST APIs", "WebSockets", "Pydantic"]
     },
     {
-      category: "ML & Speech",
-      skills: ["Cohere embed-v4.0", "Groq", "faster-whisper", "Mem0AI"]
+      category: "Data & Auth",
+      skills: ["Firebase (Auth, Firestore)", "Redis"]
+    },
+    {
+      category: "Dev Ops & Quality",
+      skills: ["Docker", "Git/GitHub", "Render", "Langfuse", "pytest"]
     }
   ] as SkillCategory[],
 
@@ -109,14 +113,24 @@ export const PORTFOLIO_DATA = {
       tags: ["AI", "RAG", "Flask", "Pinecone"]
     },
     {
-      id: "github-analyzer",
-      title: "GitHub Portfolio Analyzer",
+      id: "portfolio-evaluation-agent",
+      title: "Portfolio Evaluation Agent",
       description:
-        "A multi-agent portfolio evaluation system: a Discovery Agent surfaces all public GitHub repos for a username, lets the user pick 5 for deep analysis via Gemini LLM + GitHub analyzer tools, and aggregates results into a final portfolio score with structured JSON output and improvement recommendations.",
+        "A multi-agent portfolio evaluation system from the JobSearchOptimiser agentic platform: a Discovery Agent surfaces all public GitHub repos for a given username, presents the list so the user can select 5 repos for detailed analysis, analyzes the selected repos via Gemini LLM + GitHub analyzer tool, and an aggregator agent combines the per-repo results into a final portfolio score — outputting structured JSON with repo metrics, the aggregated score, and improvement recommendations.",
       status: "Live",
-      github: "https://github.com/Sharda2004196/github-portfolio-analyzer",
-      demo: "https://portfolio-analyzer-6q9rkqpkozx7xwnfktthomith.streamlit.app/",
+      github: "https://github.com/admin-at-uk/agentic-jso/tree/feature/multirepoanalyzeragent",
+      demo: "https://dev.jobsearchoptimiser.com/user/ai-agents/github",
       tags: ["AI", "Agentic", "GitHub", "Multi-Agent"]
+    },
+    {
+      id: "interview-iq",
+      title: "Interview IQ",
+      description:
+        "A multi-agent AI Interviewer built on Google ADK — a root agent with question-generation and evaluation agents mounted as tools. Supports five interview modes (topic, custom questions, resume, uploaded docs, web/YouTube links) grounded by Pinecone RAG, adapts difficulty after every answer and scores each one 0-10 with the overall computed deterministically in code, and streams turns over FastAPI WebSockets to a Next.js client, closing with a hire verdict and a downloadable PDF study report.",
+      status: "Live",
+      github: "https://github.com/Sharda2004196/Interview-IQ",
+      demo: "https://interviewiq-frontend-pxp5.onrender.com/",
+      tags: ["AI", "Agentic", "Google ADK", "Interview"]
     },
     {
       id: "jarvis-assistant",
@@ -133,8 +147,8 @@ export const PORTFOLIO_DATA = {
   experience: [
     {
       company: "AariyaTech",
-      role: "Agentic AI Intern",
-      duration: "May 2026 – Aug 2026",
+      role: "Agentic AI Engineer",
+      duration: "May 2026 – October 2026",
       location: "",
       description:
         "Built autonomous AI agents using Google ADK & Gemini 2.5 Flash for task automation and workflow orchestration.",
@@ -147,7 +161,7 @@ export const PORTFOLIO_DATA = {
     {
       company: "Infotact Solutions",
       role: "Data Associate L1",
-      duration: "Jun 2025 – Aug 2025",
+      duration: "Jun 2025 – August 2025",
       location: "",
       description: "",
       points: [
@@ -173,6 +187,6 @@ export const PORTFOLIO_DATA = {
     email: "shardavatsalbhat@gmail.com",
     linkedin: "https://www.linkedin.com/in/sharda-vatsal-bhat-73b037295",
     github: "https://github.com/Sharda2004196",
-    phone: "+91 60066 06713"
+    phone: "+91-6006606713"
   }
 };

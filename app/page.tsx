@@ -623,7 +623,7 @@ export default function Home() {
           { text: "  skills          - Displays categorized tech competencies.", type: "output" },
           { text: "  projects        - Prints detailed AI project blueprints.", type: "output" },
           { text: "  resume          - Triggers resume window viewer.", type: "output" },
-          { text: "  experience      - Shows current intern roles and timelines.", type: "output" },
+          { text: "  experience      - Shows roles and timelines.", type: "output" },
           { text: "  certifications  - Displays credentials issued to Sharda.", type: "output" },
           { text: "  contact         - Launches contact card inputs.", type: "output" },
           { text: "  github          - Direct link descriptor for GitHub repository.", type: "output" },
@@ -648,8 +648,10 @@ export default function Home() {
         openWindow("skills");
         outputLines = [
           { text: "Opening Skills application. Available sectors:", type: "output" },
-          { text: " - Languages: Python, SQL, JS/TS", type: "output" },
-          { text: " - AI: Agentic workflows, RAG, LangGraph, MCP Servers, Prompt tuning", type: "output" },
+          ...PORTFOLIO_DATA.skills.map((s) => ({
+            text: ` - ${s.category}: ${s.skills.join(", ")}`,
+            type: "output" as const,
+          })),
         ];
         setTerminalHistory([...updatedHistory, ...outputLines]);
         break;
@@ -658,9 +660,10 @@ export default function Home() {
         openWindow("projects");
         outputLines = [
           { text: "Launching Portfolio Projects Explorer. blueprinted repositories:", type: "output" },
-          { text: " 1. RAG AI Chatbot (Live / LLaMA 3.3)", type: "output" },
-          { text: " 2. GitHub Profile Analyzer (Live)", type: "output" },
-          { text: " 3. Stark JARVIS (In-Dev)", type: "output" },
+          ...PORTFOLIO_DATA.projects.map((p, i) => ({
+            text: ` ${i + 1}. ${p.title} (${p.status === "Live" ? "Live" : "In-Dev"})`,
+            type: "output" as const,
+          })),
         ];
         setTerminalHistory([...updatedHistory, ...outputLines]);
         break;
@@ -673,7 +676,7 @@ export default function Home() {
 
       case "experience":
         openWindow("experience");
-        outputLines = [{ text: "Retrieving AariyaTech Corp internship records...", type: "output" }];
+        outputLines = [{ text: "Retrieving AariyaTech work experience records...", type: "output" }];
         setTerminalHistory([...updatedHistory, ...outputLines]);
         break;
 
@@ -1378,7 +1381,7 @@ export default function Home() {
                             <div className="space-y-1">
                               <h4 className="text-xs font-semibold text-emerald-300 uppercase tracking-wider font-mono">Autonomy Level: Active</h4>
                               <p className="text-xs text-gray-400 leading-relaxed">
-                                Tested in distributed environments. Sharda Bhat builds highly compliant, custom Model Context Protocol (MCP) servers and complex multi-agent LangGraph orchestrations.
+                                Tested in distributed environments. Sharda Bhat builds multi-agent systems with Google ADK — custom Model Context Protocol (MCP) servers and production-ready orchestrated agent workflows.
                               </p>
                             </div>
                           </div>
@@ -1511,7 +1514,7 @@ export default function Home() {
                       {win.id === "experience" && (
                         <div id="experience-app-content" className="space-y-6">
                           <p className="text-xs text-gray-400 uppercase tracking-widest font-mono border-b border-white/10 pb-2">
-                            RECORDED INTERNSHIP WORK EXPERIENCE — LOG
+                            RECORDED WORK EXPERIENCE — LOG
                           </p>
 
                           {PORTFOLIO_DATA.experience.length > 0 ? (
@@ -2010,7 +2013,7 @@ export default function Home() {
                                     Sharda Vatsal Bhat - Agentic AI Engineer
                                   </a>
                                   <p className="text-xs text-gray-400 leading-normal">
-                                    LinkedIn profile of Sharda Vatsal Bhat, Agentic AI Engineer based in Jammu and Kashmir, India.
+                                    LinkedIn profile of Sharda Vatsal Bhat, Agentic AI Engineer based in Jammu & Kashmir, India.
                                   </p>
                                 </div>
 
