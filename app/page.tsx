@@ -38,7 +38,7 @@ import {
   RotateCcw,
   GraduationCap
 } from "lucide-react";
-import { PORTFOLIO_DATA, Project, SkillCategory, Experience as ExpType, Certification, Achievement } from "@/lib/data";
+import { PORTFOLIO_DATA, Project, SkillCategory, Experience as ExpType, Certification, Achievement, OpenSourceRepo } from "@/lib/data";
 import ParticlesBackground from "@/components/ui/particles-bg";
 import AuroraBackground from "@/components/ui/aurora-background";
 import StarfieldBackground from "@/components/ui/starfield-background";
@@ -119,9 +119,29 @@ interface DesktopShortcut {
   url?: string;
 }
 
+// ----------------------------------------------------
+// Open Source directory — public repos that are open to outside contributions.
+// Featured projects opt in via `openToContributions` in lib/data.ts, so
+// internship/client work (Portfolio Evaluation Agent) never shows up here.
+// ----------------------------------------------------
+const OPEN_SOURCE_REPOS: OpenSourceRepo[] = [
+  ...PORTFOLIO_DATA.projects
+    .filter((p) => Boolean(p.github) && p.openToContributions)
+    .map((p) => ({
+      id: p.id,
+      title: p.title,
+      description: p.description,
+      github: p.github as string,
+      demo: p.demo,
+      tags: p.tags,
+    })),
+  ...PORTFOLIO_DATA.openSourceRepos,
+];
+
 const DESKTOP_SHORTCUTS: DesktopShortcut[] = [
   { id: "projects", title: "AI Projects", type: "folder" },
   { id: "opensource", title: "Open Source", type: "folder" },
+  { id: "contributions", title: "Contributions", type: "folder" },
   { id: "certifications", title: "Certifications", type: "folder" },
   { id: "experience", title: "Experience", type: "folder" },
   { id: "browser", title: "Browser", type: "app", icon: <Globe className="w-5 h-5 text-teal-400" /> },
@@ -376,7 +396,8 @@ export default function Home() {
     { id: "terminal", title: "Terminal.exe", icon: <TerminalIcon className="w-5 h-5 text-green-400" />, isOpen: false, isMinimized: false, zIndex: 10, width: "max-w-3xl", height: "max-h-[500px]" },
     { id: "aicore", title: "AI Core", icon: <Cpu className="w-5 h-5 text-cyan-400" />, isOpen: false, isMinimized: false, zIndex: 10, width: "max-w-3xl", height: "max-h-[640px]" },
     { id: "browser", title: "Web Browser", icon: <Globe className="w-5 h-5 text-sky-400" />, isOpen: false, isMinimized: false, zIndex: 10, width: "max-w-3xl", height: "max-h-[580px]" },
-    { id: "opensource", title: "Open Source Contributions", icon: <FolderOpen className="w-5 h-5 text-purple-400" />, isOpen: false, isMinimized: false, zIndex: 10, width: "max-w-2xl", height: "max-h-[520px]" },
+    { id: "opensource", title: "Open Source Projects", icon: <FolderOpen className="w-5 h-5 text-purple-400" />, isOpen: false, isMinimized: false, zIndex: 10, width: "max-w-2xl", height: "max-h-[520px]" },
+    { id: "contributions", title: "Open Source Contributions", icon: <Github className="w-5 h-5 text-rose-400" />, isOpen: false, isMinimized: false, zIndex: 10, width: "max-w-2xl", height: "max-h-[520px]" },
   ]);
 
   const [topZ, setTopZ] = useState(15);
@@ -625,6 +646,8 @@ export default function Home() {
           { text: "  resume          - Triggers resume window viewer.", type: "output" },
           { text: "  experience      - Shows roles and timelines.", type: "output" },
           { text: "  certifications  - Displays credentials issued to Sharda.", type: "output" },
+          { text: "  opensource      - Lists public repositories open to contributions.", type: "output" },
+          { text: "  contributions   - Lists open source pull requests authored by Sharda.", type: "output" },
           { text: "  contact         - Launches contact card inputs.", type: "output" },
           { text: "  github          - Direct link descriptor for GitHub repository.", type: "output" },
           { text: "  linkedin        - Prints professional Sharda Bhat LinkedIn URL.", type: "output" },
@@ -687,6 +710,30 @@ export default function Home() {
           { text: " - Claude Code in Action", type: "output" },
           { text: " - Data Science Introductions", type: "output" },
           { text: " - AWS Generative AI Foundations", type: "output" },
+        ];
+        setTerminalHistory([...updatedHistory, ...outputLines]);
+        break;
+
+      case "opensource":
+        openWindow("opensource");
+        outputLines = [
+          { text: "Mounting public repositories open to contributions:", type: "output" },
+          ...OPEN_SOURCE_REPOS.map((repo) => ({
+            text: ` - ${repo.title}: ${repo.github}`,
+            type: "output" as const,
+          })),
+        ];
+        setTerminalHistory([...updatedHistory, ...outputLines]);
+        break;
+
+      case "contributions":
+        openWindow("contributions");
+        outputLines = [
+          { text: "Fetching upstream pull request records:", type: "output" },
+          ...PORTFOLIO_DATA.openSourceContributions.map((entry) => ({
+            text: ` - ${entry.project}: ${entry.pullRequests} PR(s)${entry.merged ? " merged" : ""} - ${entry.upstream}`,
+            type: "output" as const,
+          })),
         ];
         setTerminalHistory([...updatedHistory, ...outputLines]);
         break;
@@ -2054,37 +2101,127 @@ export default function Home() {
                               <FolderOpen className="w-5 h-5" />
                             </div>
                             <div>
-                              <h3 className="text-sm font-bold text-white tracking-wide">Open Source Repositories & Packages</h3>
-                              <p className="text-xs text-gray-400">Distributed codebases, modules, and CLI packages built for public automation.</p>
+                              <h3 className="text-sm font-bold text-white tracking-wide">Open Source Projects</h3>
+                              <p className="text-xs text-gray-400">Public repositories open to contributions — issues, pull requests and ideas welcome.</p>
                             </div>
                           </div>
 
                           <div className="space-y-3">
-                            {PORTFOLIO_DATA.projects
-                              .filter((p) => p.github)
-                              .map((proj) => (
-                                <a
-                                  key={proj.id}
-                                  href={proj.github}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  onClick={() => playSound("click")}
-                                  className="flex items-start space-x-3 p-3.5 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/5 transition-all group"
-                                >
+                            {OPEN_SOURCE_REPOS.map((repo) => (
+                              <div
+                                key={repo.id}
+                                className="p-3.5 rounded-xl bg-white/5 border border-white/10 hover:border-purple-500/40 hover:bg-purple-500/5 transition-all group"
+                              >
+                                <div className="flex items-start space-x-3">
                                   <Github className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
                                   <div className="min-w-0 flex-1">
                                     <div className="flex items-center justify-between gap-2">
-                                      <h4 className="text-sm font-semibold text-white group-hover:text-purple-300 truncate">
-                                        {proj.title}
-                                      </h4>
-                                      <span className="text-[10px] font-mono text-purple-400/80 shrink-0">public</span>
+                                      <h4 className="text-sm font-semibold text-white truncate">{repo.title}</h4>
+                                      <span className="text-[10px] font-mono text-purple-400/80 shrink-0">open to PRs</span>
                                     </div>
-                                    <p className="text-xs text-gray-400 leading-relaxed mt-1">
-                                      {proj.description || "Public repository on GitHub."}
-                                    </p>
+                                    <p className="text-xs text-gray-400 leading-relaxed mt-1">{repo.description}</p>
+                                    <div className="flex flex-wrap gap-1.5 mt-2">
+                                      {repo.tags.map((tag, i) => (
+                                        <span
+                                          key={i}
+                                          className="px-2 py-0.5 text-[10px] font-mono rounded bg-white/5 border border-white/5 text-gray-400"
+                                        >
+                                          {tag}
+                                        </span>
+                                      ))}
+                                    </div>
+                                    <div className="flex items-center gap-2 mt-3">
+                                      <a
+                                        href={repo.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={() => playSound("click")}
+                                        className="px-3 py-1.5 text-xs rounded bg-[#050816] hover:bg-purple-500/10 border border-white/10 hover:border-purple-500/50 text-gray-300 hover:text-white transition-all flex items-center space-x-1.5"
+                                      >
+                                        <Github className="w-3.5 h-3.5" />
+                                        <span>Repository</span>
+                                      </a>
+                                      {repo.demo && (
+                                        <a
+                                          href={repo.demo}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          onClick={() => playSound("click")}
+                                          className="px-3 py-1.5 text-xs rounded bg-[#00D4FF]/15 hover:bg-[#00D4FF]/25 border border-[#00D4FF]/30 hover:border-[#00D4FF] text-white transition-all flex items-center space-x-1.5"
+                                        >
+                                          <ExternalLink className="w-3.5 h-3.5" />
+                                          <span>Live Demo</span>
+                                        </a>
+                                      )}
+                                    </div>
                                   </div>
-                                </a>
-                              ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {/* OPEN SOURCE CONTRIBUTIONS APP VIEW */}
+                      {win.id === "contributions" && (
+                        <div id="contributions-app-content" className="space-y-4 font-sans text-gray-300">
+                          <div className="flex items-center space-x-3 border-b border-white/10 pb-3 select-none">
+                            <div className="p-2 rounded bg-rose-500/10 border border-rose-500/20 text-rose-400 shrink-0">
+                              <Github className="w-5 h-5" />
+                            </div>
+                            <div>
+                              <h3 className="text-sm font-bold text-white tracking-wide">Open Source Contributions</h3>
+                              <p className="text-xs text-gray-400">Pull requests authored for other people&apos;s open source projects — fork and upstream links included.</p>
+                            </div>
+                          </div>
+
+                          <div className="space-y-3">
+                            {PORTFOLIO_DATA.openSourceContributions.map((entry) => (
+                              <div
+                                key={entry.id}
+                                className="p-3.5 rounded-xl bg-white/5 border border-white/10 hover:border-rose-500/40 hover:bg-rose-500/5 transition-all"
+                              >
+                                <div className="flex items-center justify-between gap-2">
+                                  <h4 className="text-sm font-semibold text-white truncate">{entry.project}</h4>
+                                  <span
+                                    className={`px-2 py-0.5 text-[10px] font-mono rounded border shrink-0 ${
+                                      entry.merged
+                                        ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                                        : "bg-amber-500/10 text-amber-400 border-amber-500/20"
+                                    }`}
+                                  >
+                                    {entry.pullRequests} {entry.pullRequests === 1 ? "PR" : "PRs"}
+                                    {entry.merged ? " · merged" : ""}
+                                  </span>
+                                </div>
+                                <p className="text-xs text-gray-400 leading-relaxed mt-1">{entry.description}</p>
+                                <p className="text-xs text-gray-300 leading-relaxed mt-2 border-l-2 border-rose-500/40 pl-2.5">
+                                  {entry.contribution}
+                                </p>
+                                <div className="flex items-center gap-2 mt-3">
+                                  <a
+                                    href={entry.github}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={() => playSound("click")}
+                                    className="px-3 py-1.5 text-xs rounded bg-[#050816] hover:bg-rose-500/10 border border-white/10 hover:border-rose-500/50 text-gray-300 hover:text-white transition-all flex items-center space-x-1.5"
+                                  >
+                                    <Github className="w-3.5 h-3.5" />
+                                    <span>My Fork</span>
+                                  </a>
+                                  <a
+                                    href={entry.upstream}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={() => playSound("click")}
+                                    className="px-3 py-1.5 text-xs rounded bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/30 text-gray-300 hover:text-white transition-all flex items-center space-x-1.5"
+                                  >
+                                    <ExternalLink className="w-3.5 h-3.5" />
+                                    <span>Upstream Repo</span>
+                                  </a>
+                                </div>
+                              </div>
+                            ))}
                           </div>
                         </div>
                       )}

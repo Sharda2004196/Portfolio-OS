@@ -6,7 +6,35 @@ export interface Project {
   github?: string;
   demo?: string;
   isDesktopApp?: boolean;
+  // The repo accepts outside contributions (issues / PRs), so it is listed in
+  // the Open Source window. Internship and client work deliberately omits it.
+  openToContributions?: boolean;
   tags: string[];
+}
+
+// A public repo that accepts contributions but is not a featured project
+// (no resume entry / no live demo requirement).
+export interface OpenSourceRepo {
+  id: string;
+  title: string;
+  description: string;
+  github: string;
+  demo?: string;
+  tags: string[];
+}
+
+// A contribution made to somebody else's open source project.
+export interface OpenSourceContribution {
+  id: string;
+  project: string;
+  description: string;
+  contribution: string;
+  // Sharda's fork, where the work lives.
+  github: string;
+  // The original upstream project.
+  upstream: string;
+  pullRequests: number;
+  merged: boolean;
 }
 
 export interface SkillCategory {
@@ -110,6 +138,7 @@ export const PORTFOLIO_DATA = {
       status: "Live",
       github: "https://github.com/Sharda2004196/rag-ai-chatbot",
       demo: "https://rag-ai-chatbot-0pyl.onrender.com/",
+      openToContributions: true,
       tags: ["AI", "RAG", "Flask", "Pinecone"]
     },
     {
@@ -130,6 +159,7 @@ export const PORTFOLIO_DATA = {
       status: "Live",
       github: "https://github.com/Sharda2004196/Interview-IQ",
       demo: "https://interviewiq-frontend-pxp5.onrender.com/",
+      openToContributions: true,
       tags: ["AI", "Agentic", "Google ADK", "Interview"]
     },
     {
@@ -140,9 +170,39 @@ export const PORTFOLIO_DATA = {
       status: "In Development",
       github: "https://github.com/Sharda2004196/STARK-AI",
       isDesktopApp: true,
+      openToContributions: true,
       tags: ["AI", "Agentic", "Desktop", "Voice"]
     }
   ] as Project[],
+
+  // Public repos that are open to contributions but are not featured projects.
+  // Featured projects that are open to contributions join this list in page.tsx.
+  openSourceRepos: [
+    {
+      id: "prompt-enhancer-extension",
+      title: "Prompt Enhancer Extension",
+      description:
+        "A standalone Chrome/Edge extension (Manifest V3, vanilla JS) that rewrites rough ideas into structured engineering prompts — Role, Task, Context, Constraints, Output Format — using Gemini 2.5 Flash, with a bring-your-own-key model and no backend or telemetry.",
+      github: "https://github.com/Sharda2004196/Prompt-Enhancer-Extension",
+      tags: ["Browser Extension", "Gemini", "Vanilla JS", "MV3"]
+    }
+  ] as OpenSourceRepo[],
+
+  // Contributions to other people's open source projects.
+  openSourceContributions: [
+    {
+      id: "bindu",
+      project: "Bindu (GetBindu)",
+      description:
+        "An open-source operating layer for AI agents — identity, communication and payment capabilities over the A2A, AP2 and X402 protocols, with a distributed task manager, scheduler and storage.",
+      contribution:
+        "Submitted 3 pull requests to the project; #172 merged — simplified the architecture, removed Sentry bloat and hardened DID sanitization.",
+      github: "https://github.com/Sharda2004196/Bindu",
+      upstream: "https://github.com/GetBindu/Bindu",
+      pullRequests: 3,
+      merged: true
+    }
+  ] as OpenSourceContribution[],
 
   experience: [
     {

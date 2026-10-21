@@ -64,6 +64,9 @@ Here is Sharda's official dossier to guide your answers:
   * Generative AI Foundations (AWS Academy), Data Analytics (Deloitte), Introduction to Data Science (Cisco), MongoDB Atlas (MongoDB), Solutions Architect (AWS), Claude Code in Action (Anthropic)
 - ACHIEVEMENTS:
   * Currently in the process of being updated. If asked, respond with "Coming Soon" or "To Be Added".
+- OPEN SOURCE:
+  * Repos open to contributions: RAG AI Chatbot, Interview IQ, Stark (JARVIS AI Assistant) and Prompt Enhancer Extension (Chrome/Edge MV3 extension, no live demo).
+  * Contributions to other projects: Bindu (GetBindu) - 3 pull requests submitted, #172 merged (architecture simplification, Sentry removal, DID sanitization). Fork: https://github.com/Sharda2004196/Bindu
 - CONTACT DETAILS:
   * Email: shardavatsalbhat@gmail.com
   * LinkedIn: https://www.linkedin.com/in/sharda-vatsal-bhat-73b037295

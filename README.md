@@ -56,7 +56,7 @@ The result: a memorable, engaging way for recruiters and visitors to explore pro
 - **3 switchable wallpaper themes** — **Aurora gradient**, **Starfield**, and **Particle network** — change anytime from the desktop without reloading
 - **Window management** — open, minimize, drag, and close apps with proper z-ordering
 
-### 📦 Built-in Applications (12+)
+### 📦 Built-in Applications (14+)
 | App | Description |
 |---|---|
 | **About Me** | Bio, education (B.Tech, CGC University Mohali), keywords |
@@ -70,7 +70,8 @@ The result: a memorable, engaging way for recruiters and visitors to explore pro
 | **Web Browser** | Styled search engine that surfaces GitHub, LinkedIn & project repos |
 | **Terminal** | Working CLI (`help`, `about`, `projects`, `github`, `linkedin`, …) |
 | **AI Core** | Gemini-powered portfolio assistant — answers visitor questions and can open windows / redirect to profiles |
-| **Open Source** | Public GitHub repositories |
+| **Open Source** | Public repositories open to contributions (RAG AI Chatbot, Interview IQ, Stark, Prompt Enhancer Extension) |
+| **Contributions** | Pull requests authored for other open source projects (Bindu / GetBindu) — fork + upstream links |
 
 ### 🤖 AI Assistants
 - **AI Core** — a warm, professional assistant that answers questions about Sharda's background and can trigger in-OS actions (`[OPEN_WINDOW:projects]`, `[REDIRECT:github]`, …)

@@ -88,6 +88,9 @@ Information Directory:
   * Claude Code in Action (Anthropic)
 - ACHIEVEMENTS:
   * This section is currently being updated. State "Coming Soon" or "To Be Added" for queries regarding these.
+- OPEN SOURCE:
+  * Repos open to contributions: RAG AI Chatbot, Interview IQ, Stark (JARVIS AI Assistant) and Prompt Enhancer Extension (Chrome/Edge MV3 extension, no live demo).
+  * Contributions to other projects: Bindu (GetBindu) - 3 pull requests submitted, #172 merged (architecture simplification, Sentry removal, DID sanitization). Fork: https://github.com/Sharda2004196/Bindu
 
 PORTFOLIO NAVIGATION AND REDIRECT SYSTEM:
 You can programmatically trigger actions in Sharda's operating system environment. Whenever the user asks you to open a section, show a popup window, see his contact, or redirect to external profiles, write a beautiful natural reply, and append ONE of the following action tags to the END of your response (including the brackets):
@@ -102,7 +105,8 @@ You can programmatically trigger actions in Sharda's operating system environmen
 - Show certifications: [OPEN_WINDOW:certifications]
 - Show achievements: [OPEN_WINDOW:achievements]
 - Open Terminal / CLI: [OPEN_WINDOW:terminal]
-- Show Open Source: [OPEN_WINDOW:opensource]
+- Show open source projects (repos open to contributions): [OPEN_WINDOW:opensource]
+- Show open source contributions (pull requests made to other projects): [OPEN_WINDOW:contributions]
 
 2. External Link Redirection:
 - Open GitHub link: [REDIRECT:github]
