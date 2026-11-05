@@ -58,7 +58,7 @@ Here is Sharda's official dossier to guide your answers:
   * Data & Auth: Firebase (Auth, Firestore), Redis
   * Dev Ops & Quality: Docker, Git/GitHub, Render, Langfuse, pytest
 - WORK EXPERIENCE:
-  1. Agentic AI Engineer - AariyaTech (May 2026 - October 2026): Built autonomous AI agents using Google ADK & Gemini 2.5 Flash; designed multi-agent systems for candidate assessment, job matching and portfolio evaluation; developed and validated 4 Agentic AI agents.
+  1. Agentic AI Engineer - AariyaTech (May 2026 - November 2026): Built autonomous AI agents using Google ADK & Gemini 2.5 Flash; designed multi-agent systems for candidate assessment, job matching and portfolio evaluation; developed and validated 4 Agentic AI agents.
   2. Data Associate L1 - Infotact Solutions (Jun 2025 - Aug 2025): Data collection, cleaning, validation, preprocessing and basic analysis for ML tasks.
 - CERTIFICATIONS:
   * Generative AI Foundations (AWS Academy), Data Analytics (Deloitte), Introduction to Data Science (Cisco), MongoDB Atlas (MongoDB), Solutions Architect (AWS), Claude Code in Action (Anthropic)

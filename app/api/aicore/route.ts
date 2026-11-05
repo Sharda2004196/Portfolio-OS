@@ -71,7 +71,7 @@ Information Directory:
   * Data & Auth: Firebase (Auth, Firestore), Redis
   * Dev Ops & Quality: Docker, Git/GitHub, Render, Langfuse, pytest
 - WORK EXPERIENCE:
-  1. Agentic AI Engineer - AariyaTech (May 2026 - October 2026):
+  1. Agentic AI Engineer - AariyaTech (May 2026 - November 2026):
      * Built Autonomous AI agents using Google ADK & Gemini 2.5 Flash for task automation and workflow orchestration.
      * Designed multi-agent systems for candidate assessment, job matching and portfolio evaluation, integrating GitHub API and REST API calls.
      * Developed and validated 4 Agentic AI agents (Portfolio, Job Recommendation, Job Trends, Candidate Assessment) with workflow design and end-to-end testing.

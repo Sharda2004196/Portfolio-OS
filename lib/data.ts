@@ -208,7 +208,7 @@ export const PORTFOLIO_DATA = {
     {
       company: "AariyaTech",
       role: "Agentic AI Engineer",
-      duration: "May 2026 – October 2026",
+      duration: "May 2026 – November 2026",
       location: "",
       description:
         "Built autonomous AI agents using Google ADK & Gemini 2.5 Flash for task automation and workflow orchestration.",
